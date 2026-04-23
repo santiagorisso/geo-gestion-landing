@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { AnimatedContent } from './ui/AnimatedContent';
 
-const PricingCard = ({ title, price, features, isPopular }) => (
+const PricingCard = ({ title, price, features, isPopular = false }: { title: string, price: number, features: string[], isPopular?: boolean }) => (
   <motion.div
     whileHover={{ y: -10, transition: { type: "spring", stiffness: 300 } }}
     className={`bg-white p-6 md:p-8 rounded-3xl border ${isPopular ? 'border-green-600 shadow-xl' : 'border-gray-200 shadow-sm'}`}
@@ -12,7 +12,7 @@ const PricingCard = ({ title, price, features, isPopular }) => (
     <h3 className="text-2xl font-bold text-gray-900 mb-2">{title}</h3>
     <div className="text-4xl font-bold text-gray-900 mb-6">${price}<span className="text-base font-normal text-gray-500">/mes</span></div>
     <ul className="space-y-4 mb-8">
-      {features.map((feature, idx) => (
+      {features.map((feature: string, idx: number) => (
         <li key={idx} className="flex items-center text-gray-600">
           <Check className="w-5 h-5 text-green-600 mr-2" />
           {feature}
