@@ -1,0 +1,175 @@
+"use client";
+
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+
+// ============================================================================
+// ANIMATED CONTENT
+// ============================================================================
+
+interface AnimatedContentProps {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}
+
+function AnimatedContent({ children, delay = 0, className = "" }: AnimatedContentProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  return (
+    <div ref={ref} className={className}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{
+          duration: 0.6,
+          delay,
+          ease: [0.25, 0.1, 0.25, 1] as const,
+        }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  );
+}
+
+// ============================================================================
+// MAIN COMPONENT
+// ============================================================================
+
+export default function Features02Pixa() {
+  const sideCardsLeft = [
+    {
+      id: 1,
+      icon: "https://pub-2df60d97ace544a68c00aa294c98f8e5.r2.dev/Pixa/star-half-line.svg",
+      title: "Expense Tracking",
+      description: "Break down your expenses and spot trends faster with auto-categorization."
+    },
+    {
+      id: 2,
+      icon: "https://pub-2df60d97ace544a68c00aa294c98f8e5.r2.dev/Pixa/timer-fill.svg",
+      title: "Investment Portfolio",
+      description: "Track all your assets in one place and analyze performance over time."
+    }
+  ];
+
+  const sideCardsRight = [
+    {
+      id: 3,
+      icon: "https://pub-2df60d97ace544a68c00aa294c98f8e5.r2.dev/Pixa/graduation-cap-fill.svg",
+      title: "Smart Budgeting",
+      description: "Set monthly limits and get notified before you overspend on any category."
+    },
+    {
+      id: 4,
+      icon: "https://pub-2df60d97ace544a68c00aa294c98f8e5.r2.dev/Pixa/stack-overflow-fill.svg",
+      title: "Subscription Manager",
+      description: "Identify recurring charges and cancel unwanted subscriptions easily."
+    }
+  ];
+
+  const middleCard = {
+    icon: "https://pub-2df60d97ace544a68c00aa294c98f8e5.r2.dev/Pixa/chat-smile-fill.svg",
+    title: "Wealth Management",
+    description: "Holistic view of your net worth with AI-driven insights to help you reach financial freedom faster."
+  };
+
+  const iconBoxShadow = "shadow-[0_1px_1px_-0.5px_rgba(23,23,23,0.06),0_0_0_1px_rgba(23,23,23,0.08),0_1px_1px_-0.5px_rgba(23,23,23,0.04),0_3px_3px_-1.5px_rgba(23,23,23,0.04),0_6px_6px_-3px_rgba(23,23,23,0.04),0_10px_10px_-5px_rgba(23,23,23,0.04),0_20px_20px_-10px_rgba(23,23,23,0.04)]";
+
+  return (
+    <section className="w-full bg-white font-['Inter_Tight'] py-20 md:py-32 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-12">
+          <AnimatedContent delay={0.1}>
+            <div className="inline-flex items-center px-3 py-1.5 rounded-[8px] bg-[#F7F7F7] mb-6">
+              <span className="text-[14px] font-medium text-[#5C5C5C]">Use cases</span>
+            </div>
+          </AnimatedContent>
+
+          <AnimatedContent delay={0.2}>
+            <h2 className="text-[40px] md:text-[56px] leading-[1.1] font-medium text-[#171717] tracking-[-0.02em] max-w-[800px]">
+              Everything you need to take control of your money
+            </h2>
+          </AnimatedContent>
+        </div>
+
+        {/* 3-Column Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-3 items-stretch">
+          
+          {/* Left Column: Stacked Cards */}
+          <div className="flex flex-col gap-3">
+            {sideCardsLeft.map((card, idx) => (
+              <AnimatedContent key={card.id} delay={0.3 + (idx * 0.1)}>
+                <div className={`bg-[#F7F7F7] rounded-[24px] pt-10 pb-10 px-9 flex flex-col items-start gap-10 h-[248px] hover:shadow-md transition-shadow duration-300 border border-transparent hover:border-[#EBEBEB]`}>
+                  <div className={`flex items-center justify-center p-[10px] rounded-[14px] bg-white shrink-0 ${iconBoxShadow}`}>
+                    <img 
+                      src={card.icon} 
+                      alt="" 
+                      className="w-[28px] h-[28px]"
+                      style={{
+                        filter: "brightness(0) saturate(100%) invert(52%) sepia(54%) saturate(632%) hue-rotate(98deg) brightness(93%) contrast(92%)" 
+                      }}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-[20px] font-medium text-[#171717]">{card.title}</h3>
+                    <p className="text-[16px] leading-[24px] text-[#5C5C5C]">{card.description}</p>
+                  </div>
+                </div>
+              </AnimatedContent>
+            ))}
+          </div>
+
+          {/* Middle Column: Tall Card */}
+          <AnimatedContent delay={0.4} className="h-full">
+            <div className={`bg-[#F7F7F7] rounded-[24px] pt-10 pb-10 px-9 flex flex-col justify-between h-[508px] hover:shadow-md transition-shadow duration-300 border border-transparent hover:border-[#EBEBEB]`}>
+              <div className={`flex items-center justify-center p-[10px] rounded-[14px] bg-white shrink-0 self-start ${iconBoxShadow}`}>
+                <img 
+                  src={middleCard.icon} 
+                  alt="" 
+                  className="w-[28px] h-[28px]"
+                  style={{
+                    filter: "brightness(0) saturate(100%) invert(52%) sepia(54%) saturate(632%) hue-rotate(98deg) brightness(93%) contrast(92%)" 
+                  }}
+                />
+              </div>
+              
+              <div className="flex flex-col gap-2">
+                <h3 className="text-[20px] font-medium text-[#171717]">{middleCard.title}</h3>
+                <p className="text-[16px] leading-[24px] text-[#5C5C5C]">{middleCard.description}</p>
+              </div>
+            </div>
+          </AnimatedContent>
+
+          {/* Right Column: Stacked Cards */}
+          <div className="flex flex-col gap-3">
+            {sideCardsRight.map((card, idx) => (
+              <AnimatedContent key={card.id} delay={0.5 + (idx * 0.1)}>
+                <div className={`bg-[#F7F7F7] rounded-[24px] pt-10 pb-10 px-9 flex flex-col items-start gap-10 h-[248px] hover:shadow-md transition-shadow duration-300 border border-transparent hover:border-[#EBEBEB]`}>
+                  <div className={`flex items-center justify-center p-[10px] rounded-[14px] bg-white shrink-0 ${iconBoxShadow}`}>
+                    <img 
+                      src={card.icon} 
+                      alt="" 
+                      className="w-[28px] h-[28px]"
+                      style={{
+                        filter: "brightness(0) saturate(100%) invert(52%) sepia(54%) saturate(632%) hue-rotate(98deg) brightness(93%) contrast(92%)" 
+                      }}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-[20px] font-medium text-[#171717]">{card.title}</h3>
+                    <p className="text-[16px] leading-[24px] text-[#5C5C5C]">{card.description}</p>
+                  </div>
+                </div>
+              </AnimatedContent>
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
