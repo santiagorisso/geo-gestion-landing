@@ -1,2 +1,7 @@
 .vercel
 .env*.local
+dist
+node_modules
+.vite
+.eslintcache
+tsconfig.tsbuildinfo
