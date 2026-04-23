@@ -26,11 +26,11 @@ export default function FeaturesSection() {
       <div className="max-w-[1280px] mx-auto px-6">
         
         <div className="flex flex-col items-center text-center mb-12">
-          <AnimatedContent delay={0.1}>
-            <div className="inline-flex items-center px-3 py-1.5 rounded-[8px] bg-[#F7F7F7] mb-6">
+          {/*<AnimatedContent delay={0.1}>
+           <div className="inline-flex items-center px-3 py-1.5 rounded-[8px] bg-[#F7F7F7] mb-6">
               <span className="text-[14px] font-medium text-[#5C5C5C]">Funcionalidades</span>
             </div>
-          </AnimatedContent>
+          </AnimatedContent>*/}
 
           <AnimatedContent delay={0.2}>
             <h2 className="text-[32px] md:text-[56px] leading-[1.1] font-medium text-[#171717] tracking-[-0.02em] max-w-[800px]">

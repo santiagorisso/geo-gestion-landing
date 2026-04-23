@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, FileText, MapPin, Menu, X } from "lucide-react";
+import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from "../lib/whatsapp";
 
 export default function LandingGeoHero({ className }: { className?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,16 +23,13 @@ export default function LandingGeoHero({ className }: { className?: string }) {
           {/* Navigation Header */}
           <header className="flex justify-between md:justify-center items-center mb-16 md:mb-24">
             <div className="md:hidden font-bold text-xl text-green-700 z-50">Geo-Gestión</div>
-            <div className="hidden bg-white/80 backdrop-blur-md border border-gray-100 rounded-full pl-8 pr-3 py-3 md:flex items-center gap-12 shadow-sm">
+            <div className="hidden bg-white/80 backdrop-blur-md border border-gray-100 rounded-full pl-8 pr-8 py-3 md:flex items-center gap-12 shadow-sm">
               <div className="flex items-center font-bold text-xl text-green-700">Geo-Gestión</div>
               <nav className="flex items-center gap-8 text-[15px] font-medium text-gray-600">
                 <a href="#" className="hover:text-green-800 transition-colors">Inicio</a>
                 <a href="#funcionalidades" className="hover:text-green-800 transition-colors">Funcionalidades</a>
                 <a href="#planes" className="hover:text-green-800 transition-colors">Planes</a>
               </nav>
-              <button className="bg-green-600 text-white px-6 py-2 rounded-full text-[14px] font-bold hover:bg-green-700 transition-colors shadow-lg shadow-green-500/20">
-                Pedi una demo!
-              </button>
             </div>
             <button className="md:hidden z-50 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X /> : <Menu />}
@@ -78,9 +76,15 @@ export default function LandingGeoHero({ className }: { className?: string }) {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="flex flex-col sm:flex-row justify-center gap-4"
             >
-              <button className="bg-green-600 text-white px-8 md:px-10 py-4 rounded-full font-bold text-[16px] md:text-[18px] hover:bg-green-700 transition-colors shadow-lg shadow-green-500/30">
+              <a
+                href={buildWhatsAppHref(whatsAppPresets.demo)}
+                onClick={guardWhatsAppNavigation}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 text-white px-8 md:px-10 py-4 rounded-full font-bold text-[16px] md:text-[18px] hover:bg-green-700 transition-colors shadow-lg shadow-green-500/30 text-center"
+              >
                 Solicita una demo gratis
-              </button>
+              </a>
               <a href="#planes" className="bg-white text-gray-800 px-8 md:px-10 py-4 rounded-full font-bold text-[16px] md:text-[18px] hover:bg-gray-100 transition-colors border border-gray-200 text-center">
                 Ver planes
               </a>
