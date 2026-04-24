@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, FileText, MapPin, Menu, X, LayoutDashboard, Users, Search } from "lucide-react";
+import { Menu, X, LayoutDashboard, Users, Search } from "lucide-react";
 import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from "../lib/whatsapp";
 
 export default function LandingGeoHero({ className }: { className?: string }) {

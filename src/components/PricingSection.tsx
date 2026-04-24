@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from '../lib/whatsapp';
 import { AnimatedContent } from './ui/AnimatedContent';
