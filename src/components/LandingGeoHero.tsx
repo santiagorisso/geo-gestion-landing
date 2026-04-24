@@ -48,6 +48,7 @@ export default function LandingGeoHero({ className }: { className?: string }) {
                 <a href="#" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold">Inicio</a>
                 <a href="#funcionalidades" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold">Funcionalidades</a>
                 <a href="#planes" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold">Planes</a>
+                <a href="#faq" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold">FAQ</a>
               </motion.div>
             )}
           </AnimatePresence>
@@ -55,14 +56,13 @@ export default function LandingGeoHero({ className }: { className?: string }) {
           {/* Hero Content */}
           <div className="text-center mb-16">
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-[40px] md:text-[72px] font-bold text-gray-900 leading-[1.1] mb-8 tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-[40px] md:text-[72px] font-bold text-gray-900 leading-[1.1] mb-8 tracking-tight"
             >
-              El gestor de trabajos que<br className="hidden md:block" />tu estudio necesitaba
-            </motion.h1>
-            <motion.p
+            El gestor de trabajos que <br className="hidden md:block" />tu estudio necesitaba
+            </motion.h1>            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
