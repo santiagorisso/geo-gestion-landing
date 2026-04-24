@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, FileText, MapPin, Menu, X } from "lucide-react";
+import { CheckCircle2, FileText, MapPin, Menu, X, LayoutDashboard, Users, Search } from "lucide-react";
 import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from "../lib/whatsapp";
 
 export default function LandingGeoHero({ className }: { className?: string }) {
@@ -16,7 +16,7 @@ export default function LandingGeoHero({ className }: { className?: string }) {
 
       <section
         className={"w-full min-h-screen pt-8 pb-0 px-6 overflow-hidden font-sans " + (className || "")}
-        style={{ background: "linear-gradient(180deg, #FFFFFF 0%, #E8F5E9 100%)" }}
+        style={{ background: "linear-gradient(180deg, #E8F5E9 0%, transparent 100%)" }}
       >
         <div className="max-w-7xl mx-auto">
 
@@ -95,9 +95,9 @@ export default function LandingGeoHero({ className }: { className?: string }) {
           {/* Features Grid */}
           <div className="flex flex-wrap justify-center gap-[20px] mt-16 md:mt-24">
             {[
-              { icon: FileText, title: "Expedientes Digitales", desc: "Trazabilidad real de todos tus trabajos." },
-              { icon: MapPin, title: "Integración ARBA", desc: "Consulta a catastro para autocompletar." },
-              { icon: CheckCircle2, title: "Portal de Clientes", desc: "Tus clientes revisan el estado del tramite." }
+              { icon: LayoutDashboard, title: "Plataforma Todo-en-Uno", desc: "Centralizá expedientes, clientes y agenda en un solo lugar. Eliminá el caos de planillas y mails dispersos." },
+              { icon: Users, title: "Para Estudios Profesionales", desc: "Diseñado específicamente para agrimensores y gestores que buscan escala, profesionalismo y orden sin fricciones." },
+              { icon: Search, title: "Integración ARBA y Buscador Ágil", desc: "Autocompletado catastral instantáneo y acceso total a tu base de datos de clientes en segundos. Eficiencia real desde el minuto uno." }
             ].map((item, i) => (
               <motion.div
                 key={i}

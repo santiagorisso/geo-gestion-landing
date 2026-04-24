@@ -13,16 +13,40 @@ export default function FeaturesSection() {
   const iconBoxShadow = "shadow-[0_1px_1px_-0.5px_rgba(23,23,23,0.06),0_0_0_1px_rgba(23,23,23,0.08),0_1px_1px_-0.5px_rgba(23,23,23,0.04),0_3px_3px_-1.5px_rgba(23,23,23,0.04),0_6px_6px_-3px_rgba(23,23,23,0.04),0_10px_10px_-5px_rgba(23,23,23,0.04),0_20px_20px_-10px_rgba(23,23,23,0.04)]";
 
   const features = [
-    { icon: LayoutDashboard, title: "Dashboard Interactivo", desc: "Obtené un resumen claro y en tiempo real de todos tus expedientes y el estado de tu gestión." },
-    { icon: Users, title: "Roles Personalizados", desc: "Gestioná usuarios con accesos específicos para proteger la información sensible de tu estudio." },
-    { icon: User, title: "Listado de Clientes", desc: "Accedé de forma rápida a toda la base de datos de tus clientes con sus detalles actualizados." },
-    { icon: MessageSquareText, title: "Mensajes Automáticos", desc: "Notificá a tus clientes automáticamente apenas se finalice su trámite." },
-    { icon: CalendarDays, title: "Calendario de Visitas", desc: "Coordiná visitas de forma eficiente con un calendario interactivo integrado." },
-    { icon: BarChart3, title: "Reportes y Estadísticas", desc: "Analizá el rendimiento de tu estudio y seguí el comportamiento de tus clientes." }
+    { 
+      icon: LayoutDashboard, 
+      title: "Dashboard Interactivo", 
+      desc: "Obtené un resumen claro y en tiempo real de todos tus expedientes. Sabé qué trabajos están pendientes, en proceso o finalizados, y priorizá sin perder tiempo buscando información." 
+    },
+    { 
+      icon: Users, 
+      title: "Roles Personalizados", 
+      desc: "Asigná permisos diferenciados a cada integrante según su función. Protegé la información sensible y garantizá confidencialidad y orden dentro de tu equipo." 
+    },
+    { 
+      icon: User, 
+      title: "Listado de Clientes", 
+      desc: "Accedé de forma rápida a toda la base de datos de tus clientes con detalles actualizados. Historial de trámites, datos de contacto y estado de cuenta disponibles en segundos." 
+    },
+    { 
+      icon: MessageSquareText, 
+      title: "Mensajes Automáticos", 
+      desc: "Notificá a tus clientes apenas se finalice su trámite. Reducí las consultas entrantes y mejorá la experiencia del cliente sin esfuerzo adicional." 
+    },
+    { 
+      icon: CalendarDays, 
+      title: "Calendario de Visitas", 
+      desc: "Coordiná visitas de forma eficiente con un calendario interactivo. Evitá superposiciones, asigná recursos y mantené a todo el equipo alineado." 
+    },
+    { 
+      icon: BarChart3, 
+      title: "Reportes y Estadísticas", 
+      desc: "Analizá el rendimiento de tu estudio y el comportamiento de tus clientes. Tomá decisiones informadas basadas en datos reales, no en suposiciones." 
+    }
   ];
 
   return (
-    <section id="funcionalidades" className="w-full bg-white py-20 md:py-32 overflow-hidden" style={{ background: "linear-gradient(180deg, #E8F5E9 0%, #FFFFFF 20%)" }}>
+    <section id="funcionalidades" className="w-full py-20 md:py-32 overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-6">
         
         <div className="flex flex-col items-center text-center mb-12">

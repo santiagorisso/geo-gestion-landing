@@ -1,90 +1,71 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
-import { buildWhatsAppHref, whatsAppPresets } from '../lib/whatsapp';
-
-const faqs = [
-  {
-    q: "¿Qué es Geo Gestión?",
-    a: "Es una plataforma digital diseñada para que estudios profesionales centralicen la gestión de expedientes, clientes y pagos, eliminando el uso de papel y optimizando la productividad diaria."
-  },
-  {
-    q: "¿A quién está dirigida la plataforma?",
-    a: "A estudios profesionales como agrimensores, arquitectos y gestores que necesitan un control riguroso, trazabilidad de sus trámites y una comunicación profesional con sus clientes."
-  },
-  {
-    q: "¿Cómo funciona la integración con ARBA?",
-    a: "La plataforma permite consultar y obtener datos catastrales directamente desde el servidor de ARBA, permitiéndote autocompletar expedientes en segundos y eliminando errores de carga manual."
-  },
-  {
-    q: "¿Qué beneficios aporta el Portal de Clientes?",
-    a: "Brinda transparencia total. Tus clientes pueden consultar el estado de sus trámites en cualquier momento desde un portal exclusivo, reduciendo la necesidad de que te contacten para pedir actualizaciones."
-  },
-  {
-    q: "¿Puedo usar la plataforma con mi equipo de trabajo?",
-    a: "Sí. El plan Estudio permite gestionar hasta 6 usuarios, asignando roles personalizados para controlar el acceso a la información según la jerarquía de cada miembro del equipo."
-  },
-  {
-    q: "¿Qué herramientas de análisis incluye el sistema?",
-    a: "Incluye un dashboard interactivo que centraliza reportes y estadísticas, permitiéndote medir el rendimiento de tu estudio y tomar decisiones basadas en datos reales."
-  },
-  {
-    q: "¿Es seguro almacenar mis expedientes en la nube?",
-    a: "Totalmente. Tu información está protegida con backups automáticos constantes, garantizando que todos tus datos estén resguardados, organizados y disponibles únicamente para ti."
-  },
-  {
-    q: "¿Cómo se notifican los cambios en los trámites a los clientes?",
-    a: "El sistema automatiza el envío de mensajes a través de WhatsApp en momentos clave, asegurando que tus clientes siempre estén informados sin que tengas que redactar mensajes manualmente."
-  },
-  {
-    q: "¿Cómo puedo solicitar una prueba o comenzar a usar Geo Gestión?",
-    a: (
-      <>
-        Es muy simple: puedes solicitar una demo personalizada o consultar por nuestros planes directamente a través del botón de WhatsApp que encontrarás en toda nuestra plataforma, o{' '}
-        <a 
-          href={buildWhatsAppHref(whatsAppPresets.demo)} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="text-blue-600 font-semibold hover:underline"
-        >
-          haciendo clic acá
-        </a>{' '}
-        podés pedir la demo.
-      </>
-    )
-  }
-];
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import { AnimatedContent } from './ui/AnimatedContent';
 
 export const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
+  const faqs = [
+    {
+      q: "¿Necesito instalar algo en mi computadora?",
+      a: "No. Geo-Gestión es una plataforma 100% web. Solo necesitás un navegador y conexión a internet. Funciona desde cualquier dispositivo: computadora de escritorio, notebook, tablet o celular."
+    },
+    {
+      q: "¿Mis datos están seguros?",
+      a: "Sí. La plataforma cuenta con backups automáticos diarios y toda la información se almacena en servidores seguros. Tus datos y los de tus clientes están protegidos en todo momento."
+    },
+    {
+      q: "¿Puedo migrar mi base de clientes existente?",
+      a: "Sí. Al momento de dar de alta tu cuenta, el equipo de Geo-Gestión te acompaña en el proceso de migración de datos para que la transición sea ordenada y sin pérdida de información."
+    },
+    {
+      q: "¿Qué pasa si necesito más de 6 usuarios?",
+      a: "Si tu estudio supera los 6 usuarios del plan Estudio, podés consultar directamente con el equipo para explorar opciones personalizadas adaptadas al tamaño de tu organización."
+    },
+    {
+      q: "¿Cómo funciona la integración con ARBA?",
+      a: "La integración está activa por defecto en todos los planes. Al ingresar una partida catastral, el sistema consulta automáticamente a ARBA y completa los datos del inmueble sin intervención manual."
+    },
+    {
+      q: "¿Puedo probar la plataforma antes de contratar?",
+      a: "Sí. Podés solicitar una demo gratuita con el equipo de Geo-Gestión y conocer la plataforma en profundidad antes de tomar ninguna decisión. Sin compromisos."
+    }
+  ];
+
   return (
-    <section id="faq" className="py-20 bg-gray-50">
+    <section id="faq" className="py-20 md:py-32">
       <div className="max-w-3xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Preguntas Frecuentes</h2>
+        <AnimatedContent delay={0.2}>
+          <h2 className="text-[32px] md:text-[56px] font-medium text-[#171717] tracking-[-0.02em] text-center mb-16">
+            Preguntas frecuentes
+          </h2>
+        </AnimatedContent>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-              <button
-                onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
-              >
-                <span className="font-semibold text-gray-900">{faq.q}</span>
-                <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform ${activeIndex === index ? 'rotate-180' : ''}`} />
-              </button>
-              <AnimatePresence>
-                {activeIndex === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="px-6 pb-6 text-gray-600">{faq.a}</div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+            <AnimatedContent key={index} delay={0.3 + (index * 0.1)}>
+              <div className="bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden">
+                <button
+                  onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+                  className="w-full p-8 text-left flex justify-between items-center"
+                >
+                  <h3 className="text-xl font-semibold text-gray-900">{faq.q}</h3>
+                  <ChevronDown className={`transform transition-transform ${activeIndex === index ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {activeIndex === index && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      exit={{ height: 0 }}
+                      className="px-8 pb-8 text-gray-600 leading-relaxed"
+                    >
+                      {faq.a}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </AnimatedContent>
           ))}
         </div>
       </div>
