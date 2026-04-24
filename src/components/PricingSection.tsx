@@ -1,6 +1,5 @@
 import { Check } from 'lucide-react';
 import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from '../lib/whatsapp';
-import { AnimatedContent } from './ui/AnimatedContent';
 
 export const PricingSection = () => {
   return (
