@@ -29,6 +29,7 @@ export default function LandingGeoHero({ className }: { className?: string }) {
                 <a href="#" className="hover:text-green-800 transition-colors">Inicio</a>
                 <a href="#funcionalidades" className="hover:text-green-800 transition-colors">Funcionalidades</a>
                 <a href="#planes" className="hover:text-green-800 transition-colors">Planes</a>
+                <a href="#faq" className="hover:text-green-800 transition-colors">FAQ</a>
               </nav>
             </div>
             <button className="md:hidden z-50 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
