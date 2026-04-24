@@ -32,34 +32,6 @@ export const PricingSection = () => {
             <a href={buildWhatsAppHref(whatsAppPresets.plan('Estudio'))} onClick={guardWhatsAppNavigation} className="block w-full text-center bg-green-600 text-white py-3 rounded-xl font-bold">Elegir Estudio</a>
           </div>
         </div>
-
-        <div className="overflow-x-auto bg-white rounded-[24px] p-8 shadow-sm border border-gray-100">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="border-b">
-                <th className="p-4 font-semibold text-gray-900">Funcionalidad</th>
-                <th className="p-4 text-center text-gray-900">Starter</th>
-                <th className="p-4 text-center text-gray-900">Estudio</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                { name: "Expedientes Digitales", s: "✅", e: "✅" },
-                { name: "Integración ARBA", s: "✅", e: "✅" },
-                { name: "Portal de clientes", s: "✅", e: "✅" },
-                { name: "Calendario de visitas", s: "❌", e: "✅" },
-                { name: "Roles personalizados", s: "❌", e: "✅" },
-                { name: "Soporte prioritario", s: "❌", e: "✅" }
-              ].map((row, i) => (
-                <tr key={i} className="border-b last:border-b-0">
-                  <td className="p-4 text-gray-600">{row.name}</td>
-                  <td className="p-4 text-center">{row.s}</td>
-                  <td className="p-4 text-center">{row.e}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </div>
     </section>
   );
