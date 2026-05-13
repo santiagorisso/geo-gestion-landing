@@ -71,25 +71,7 @@ export default function LandingGeoHero({ className }: { className?: string }) {
               Expedientes, clientes y pagos en una sola plataforma, sin papeles de por medio.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="flex flex-col sm:flex-row justify-center gap-4"
-            >
-              <a
-                href={buildWhatsAppHref(whatsAppPresets.demo)}
-                onClick={guardWhatsAppNavigation}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-600 text-white px-8 md:px-10 py-4 rounded-full font-bold text-[16px] md:text-[18px] hover:bg-green-700 transition-colors shadow-lg shadow-green-500/30 text-center"
-              >
-                Solicita una demo gratis
-              </a>
-              <a href="#planes" className="bg-white text-gray-800 px-8 md:px-10 py-4 rounded-full font-bold text-[16px] md:text-[18px] hover:bg-gray-100 transition-colors border border-gray-200 text-center">
-                Ver planes
-              </a>
-            </motion.div>
+            {/* Botones eliminados por petición del usuario */}
           </div>
 
           {/* Features Grid */}
