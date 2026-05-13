@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { AnimatedContent } from './ui/AnimatedContent';
 
 import dashboardImg from '../assets/dashboard.png';
 import buscadorImg from '../assets/buscador.png';

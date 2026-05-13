@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, LayoutDashboard, Users, Search } from "lucide-react";
-import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from "../lib/whatsapp";
-
 export default function LandingGeoHero({ className }: { className?: string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
