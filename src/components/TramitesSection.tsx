@@ -1,29 +1,35 @@
 export default function TramitesSection() {
   const tramites = [
     {
+      code: "EP",
       name: "Estado Parcelario",
-      desc: "Constancia con nomenclatura completa y visado."
+      desc: "Constancia con nomenclatura completa y visado.",
     },
     {
+      code: "MP",
       name: "Mensura Particular",
-      desc: "Mensuras urbanas y rurales con expediente, gabinete y campo."
+      desc: "Mensuras urbanas y rurales con expediente, gabinete y campo.",
     },
     {
+      code: "AM",
       name: "Actualización de Mensura",
-      desc: "Vigencias, modificaciones y reaprobaciones, sin rearmar desde cero."
+      desc: "Vigencias, modificaciones y reaprobaciones, sin rearmar desde cero.",
     },
     {
+      code: "PH",
       name: "Afectación PH",
-      desc: "Propiedad horizontal con unidades funcionales y polígonos."
+      desc: "Propiedad horizontal con unidades funcionales y polígonos.",
     },
     {
+      code: "AMJ",
       name: "Amojonamiento",
-      desc: "Hitos de campo, fechas de visita y gabinete asociados al expediente."
+      desc: "Hitos de campo, fechas de visita y gabinete asociados al expediente.",
     },
     {
+      code: "UP",
       name: "Unificación de Parcelas",
-      desc: "Más de una partida, una sola parcela, sin pegar Excel."
-    }
+      desc: "Más de una partida, una sola parcela, sin pegar Excel.",
+    },
   ];
 
   return (
