@@ -1,99 +1,93 @@
-"use client";
+import buscadorImg from '../assets/buscador.png';
+import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from '../lib/whatsapp';
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, LayoutDashboard, Users, Search } from "lucide-react";
-export default function LandingGeoHero({ className }: { className?: string }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function LandingGeoHero() {
+  const whatsappLink = buildWhatsAppHref(whatsAppPresets.demo);
 
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+      {/* ============== HERO ============== */}
+      <section className="hero">
+        <div className="wrap">
+          <span className="eyebrow">para agrimensores, por agrimensores</span>
+          <h1 className="display h1">
+            El software para estudios de agrimensura,<br />
+            <em>con ARBA integrado.</em>
+          </h1>
+          <p className="lead">
+            Tus expedientes, clientes y visitas en una sola plataforma. Nomenclatura catastral autocompleta,
+            estados del trámite claros y reportes que tu estudio ya entiende.
+          </p>
+          <div className="hero-actions">
+            <a
+              href={whatsappLink}
+              className="btn btn-primary"
+              onClick={guardWhatsAppNavigation}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pedi la demo
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#planes" className="btn btn-ghost">Ver planes</a>
+          </div>
 
-      <section
-        className={"w-full min-h-screen pt-8 pb-0 px-6 overflow-hidden font-sans " + (className || "")}
-        style={{ background: "linear-gradient(180deg, #E8F5E9 0%, transparent 100%)" }}
-      >
-        <div className="max-w-7xl mx-auto">
-
-          {/* Navigation Header */}
-          <header className="flex justify-between md:justify-center items-center mb-16 md:mb-24">
-            <div className="md:hidden font-bold text-xl text-green-700 z-50">Geo-Gestión</div>
-            <div className="hidden bg-white/80 backdrop-blur-md border border-gray-100 rounded-full pl-8 pr-8 py-3 md:flex items-center gap-12 shadow-sm">
-              <div className="flex items-center font-bold text-xl text-green-700">Geo-Gestión</div>
-              <nav className="flex items-center gap-8 text-[15px] font-medium text-gray-600">
-                <a href="#" className="hover:text-green-800 transition-colors">Inicio</a>
-                <a href="#funcionalidades" className="hover:text-green-800 transition-colors">Funcionalidades</a>
-                <a href="#planes" className="hover:text-green-800 transition-colors">Planes</a>
-                <a href="#faq" className="hover:text-green-800 transition-colors">FAQ</a>
-              </nav>
+          {/* <dl className="hero-meta">
+            <div>
+              <dt>Integración</dt>
+              <dd>ARBA nativa</dd>
             </div>
-            <button className="md:hidden z-50 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X /> : <Menu />}
-            </button>
-          </header>
+            <div>
+              <dt>Soportes</dt>
+              <dd>6 tipos de trámite</dd>
+            </div>
+            <div>
+              <dt>Estados</dt>
+              <dd>5 del flujo catastral</dd>
+            </div>
+            <div>
+              <dt>Equipo</dt>
+              <dd>Hecho en Mar del Plata</dd>
+            </div>
+          </dl> */}
+        </div>
 
-          <AnimatePresence>
-            {isMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-8 md:hidden"
-              >
-                <a href="#" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold">Inicio</a>
-                <a href="#funcionalidades" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold">Funcionalidades</a>
-                <a href="#planes" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold">Planes</a>
-                <a href="#faq" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold">FAQ</a>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          {/* Hero Content */}
-          <div className="text-center mb-16">
-            <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-[40px] md:text-[72px] font-bold text-gray-900 leading-[1.1] mb-8 tracking-tight"
-            >
-            El gestor de trabajos que <br className="hidden md:block" />tu estudio necesitaba
-            </motion.h1>            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="text-gray-500 text-base md:text-xl max-w-3xl mx-auto leading-relaxed mb-12"
-            >
-              Expedientes, clientes y pagos en una sola plataforma, sin papeles de por medio.
-            </motion.p>
-
-            {/* Botones eliminados por petición del usuario */}
-          </div>
-
-          {/* Features Grid */}
-          <div className="flex flex-wrap justify-center gap-[20px] mt-16 md:mt-24">
-            {[
-              { icon: LayoutDashboard, title: "Plataforma Todo-en-Uno", desc: "Centralizá expedientes, clientes y agenda en un solo lugar. Eliminá el caos de planillas y mails dispersos." },
-              { icon: Users, title: "Para Estudios Profesionales", desc: "Diseñado específicamente para agrimensores y gestores que buscan escala, profesionalismo y orden sin fricciones." },
-              { icon: Search, title: "Integración ARBA y Buscador Ágil", desc: "Autocompletado catastral instantáneo y acceso total a tu base de datos de clientes en segundos. Eficiencia real desde el minuto uno." }
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + i * 0.1, duration: 0.6 }}
-                className="w-full max-w-[350px] bg-white rounded-[24px] p-8 shadow-sm border border-gray-100"
-              >
-                <item.icon size={32} className="text-green-600 mb-6" />
-                <h3 className="text-[20px] font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-500 text-[15px]">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="wrap">
+          <figure className="hero-screenshot reveal">
+            <img
+              src={buscadorImg}
+              alt="Buscador de Geo-Gestión: búsqueda de expedientes por partida, cliente o tipo de trámite"
+              width="1240"
+              height="780"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </figure>
         </div>
       </section>
+
+      {/* ============== TRUST ============== */}
+       <div className="trust">
+        <div className="wrap trust-inner">
+          {/*<span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Hecho en Mar del Plata
+          </span>*/}
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Integración con ARBA
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>
+            Copias de seguridad diarias
+          </span>
+          <span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z"/></svg>
+            Datos en servidores seguros
+          </span>
+        </div>
+      </div>
     </>
   );
 }

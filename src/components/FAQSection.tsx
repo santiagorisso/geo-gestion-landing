@@ -1,74 +1,90 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import { AnimatedContent } from './ui/AnimatedContent';
+import { useState, useRef } from "react";
 
 export const FAQSection = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const faqs = [
     {
-      q: "¿Necesito instalar algo en mi computadora?",
-      a: "No. Geo-Gestión es una plataforma 100% web. Solo necesitás un navegador y conexión a internet. Funciona desde cualquier dispositivo: computadora de escritorio, notebook, tablet o celular."
-    },
-    {
-      q: "¿Mis datos están seguros?",
-      a: "Sí. La plataforma cuenta con backups automáticos diarios y toda la información se almacena en servidores seguros. Tus datos y los de tus clientes están protegidos en todo momento."
-    },
-    {
-      q: "¿Puedo migrar mi base de clientes existente?",
-      a: "Sí. Al momento de dar de alta tu cuenta, el equipo de Geo-Gestión te acompaña en el proceso de migración de datos para que la transición sea ordenada y sin pérdida de información."
-    },
-    {
-      q: "¿Qué pasa si necesito más de 6 usuarios?",
-      a: "Si tu estudio supera los 6 usuarios del plan Estudio, podés consultar directamente con el equipo para explorar opciones personalizadas adaptadas al tamaño de tu organización."
-    },
-    {
       q: "¿Cómo funciona la integración con ARBA?",
-      a: "La integración está activa por defecto en todos los planes. Al ingresar una partida catastral, el sistema consulta automáticamente a ARBA y completa los datos del inmueble sin intervención manual."
+      a: "Geo-Gestión se conecta directamente a los servicios web de ARBA. Cuando cargás una partida inmobiliaria, el sistema consulta los servidores catastrales oficiales en tiempo real y autocompleta los datos de nomenclatura (circunscripción, sección, manzana, parcela) en la ficha del expediente. Esto elimina el tipeo manual y previene observaciones en las presentaciones."
     },
     {
-      q: "¿Puedo probar la plataforma antes de contratar?",
-      a: "Sí. Podés solicitar una demo gratuita con el equipo de Geo-Gestión y conocer la plataforma en profundidad antes de tomar ninguna decisión. Sin compromisos."
+      q: "¿Tengo que instalar algún programa en mi computadora?",
+      a: "No. Geo-Gestión es una plataforma 100% web. Podés acceder desde cualquier computadora, notebook, tablet o celular con conexión a internet y un navegador moderno (Chrome, Safari, Firefox, Edge). No requiere instalaciones, actualizaciones ni mantenimiento técnico de tu parte."
+    },
+    {
+      q: "¿Mis datos están seguros y respaldados?",
+      a: "Absolutamente. Toda la información viaja cifrada mediante protocolos SSL/TLS (HTTPS) de nivel bancario. Hospedamos la plataforma en servidores redundantes de alta seguridad y realizamos copias de respaldo (backups) automáticas completas cada 24 horas, garantizando que nunca pierdas tu historial de trabajos ni clientes."
+    },
+    {
+      q: "¿Hay un límite de expedientes o clientes que puedo cargar?",
+      a: "No. Todos nuestros planes permiten la carga ilimitada de expedientes, trámites catastrales, parcelas y clientes en la base de datos. La única diferencia entre el plan Starter y el plan Estudio es la cantidad de usuarios del equipo que pueden acceder a la plataforma y las funciones avanzadas de permisos y reportes."
+    },
+    {
+      q: "¿Qué pasa si mi estudio tiene más de 6 usuarios?",
+      a: "Ofrecemos planes a medida para estudios grandes y corporativos con requerimientos especiales de integración, volumen o cantidad de accesos. Escribinos por WhatsApp seleccionando la consulta corporativa y diseñamos un presupuesto personalizado adaptado a las necesidades de tu estructura."
     }
   ];
 
   return (
-    <section id="faq" className="py-20 md:py-32">
-      <div className="max-w-3xl mx-auto px-6">
-        <AnimatedContent delay={0.2}>
-          <h2 className="text-[32px] md:text-[56px] font-medium text-[#171717] tracking-[-0.02em] text-center mb-16">
-            Preguntas frecuentes
-          </h2>
-        </AnimatedContent>
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <AnimatedContent key={index} delay={0.3 + (index * 0.1)}>
-              <div className="bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden">
-                <button
-                  onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                  className="w-full p-8 text-left flex justify-between items-center"
-                >
-                  <h3 className="text-xl font-semibold text-gray-900">{faq.q}</h3>
-                  <ChevronDown className={`transform transition-transform ${activeIndex === index ? 'rotate-180' : ''}`} />
-                </button>
-                <AnimatePresence>
-                  {activeIndex === index && (
-                    <motion.div
-                      initial={{ height: 0 }}
-                      animate={{ height: "auto" }}
-                      exit={{ height: 0 }}
-                      className="px-8 pb-8 text-gray-600 leading-relaxed"
-                    >
-                      {faq.a}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </AnimatedContent>
-          ))}
+    <section className="section" id="faq">
+      <div className="wrap">
+        <div className="section-head">
+          <span className="eyebrow">Preguntas frecuentes</span>
+          <h2 className="display h2">Todo lo que querés saber.</h2>
+        </div>
+
+        <div className="faq-list">
+          {faqs.map((faq, index) => {
+            const isOpen = activeIndex === index;
+            return (
+              <FAQItem
+                key={index}
+                q={faq.q}
+                a={faq.a}
+                isOpen={isOpen}
+                onClick={() => setActiveIndex(isOpen ? null : index)}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
   );
 };
+
+interface FAQItemProps {
+  q: string;
+  a: string;
+  isOpen: boolean;
+  onClick: () => void;
+}
+
+function FAQItem({ q, a, isOpen, onClick }: FAQItemProps) {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className={`faq-item ${isOpen ? 'open' : ''}`}>
+      <button
+        className="faq-q"
+        aria-expanded={isOpen}
+        onClick={onClick}
+      >
+        {q}
+        <svg className="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9l6 6 6-6"/>
+        </svg>
+      </button>
+      <div
+        className="faq-a"
+        style={{
+          maxHeight: isOpen ? `${contentRef.current?.scrollHeight}px` : '0px'
+        }}
+      >
+        <div className="faq-a-inner" ref={contentRef}>
+          <p style={{ margin: 0 }}>{a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}

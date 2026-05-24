@@ -1,35 +1,130 @@
-import { Check } from 'lucide-react';
 import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from '../lib/whatsapp';
 
 export const PricingSection = () => {
+  const starterLink = buildWhatsAppHref(whatsAppPresets['plan-starter']);
+  const estudioLink = buildWhatsAppHref(whatsAppPresets['plan-estudio']);
+
   return (
-    <section id="planes" className="py-20 md:py-32">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-[32px] md:text-[56px] font-medium text-[#171717] tracking-[-0.02em] text-center mb-16">
-          Elegí el plan que se adapta a tu estudio
-        </h2>
-        
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          <div className="bg-[#F7F7F7] rounded-[24px] p-8 border border-transparent hover:border-gray-200 transition-all flex flex-col">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Starter</h3>
-            <p className="text-gray-600 mb-6">Para profesionales independientes</p>
-            <ul className="space-y-4 mb-8 flex-grow">
-              {["1 usuario incluido", "Listado de clientes completo", "Reportes y estadísticas", "Mensajes automáticos a clientes", "Backups automáticos diarios"].map((f, i) => (
-                <li key={i} className="flex items-center gap-3"><Check className="text-green-600" /> {f}</li>
-              ))}
+    <section className="section" id="planes">
+      <div className="wrap">
+        <div className="section-head">
+          <span className="eyebrow">Precios</span>
+          <h2 className="display h2">Planes a la medida de tu estudio.</h2>
+          <p className="lead">Goberná tus expedientes sin importar el tamaño de tu estructura. Podés empezar hoy mismo.</p>
+        </div>
+
+        <div className="pricing">
+          <div className="plan">
+            <h3 className="plan-name">Starter</h3>
+            <p className="plan-tag">Ideal para agrimensores independientes.</p>
+            <div className="plan-price-block">
+              <span className="plan-price">$20.000</span>
+              <span className="label">/ mes</span>
+            </div>
+            <ul>
+              <li>
+                <span className="tick">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Hasta 2 usuarios activos
+              </li>
+              <li>
+                <span className="tick">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Trámites y clientes ilimitados
+              </li>
+              <li>
+                <span className="tick">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Integración ARBA nativa
+              </li>
+              <li>
+                <span className="tick">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Calendario de visitas semanal
+              </li>
             </ul>
-            <a href={buildWhatsAppHref(whatsAppPresets.plan('Starter'))} onClick={guardWhatsAppNavigation} className="block w-full text-center bg-gray-900 text-white py-3 rounded-xl font-bold">Elegir Starter</a>
+            <a
+              href={starterLink}
+              onClick={guardWhatsAppNavigation}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost plan-cta"
+            >
+              Elegir plan Starter
+            </a>
           </div>
-          <div className="bg-white rounded-[24px] p-8 border-2 border-green-600 shadow-lg flex flex-col">
-            <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block self-start">MÁS POPULAR</span>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Estudio</h3>
-            <p className="text-gray-600 mb-6">Para equipos en crecimiento</p>
-            <ul className="space-y-4 mb-8 flex-grow">
-              {["Hasta 6 usuarios simultáneos", "Listado de clientes completo", "Reportes avanzados", "Mensajes automáticos", "Backups diarios", "Soporte prioritario", "Calendario de visitas", "Roles personalizados"].map((f, i) => (
-                <li key={i} className="flex items-center gap-3"><Check className="text-green-600" /> {f}</li>
-              ))}
+
+          <div className="plan featured">
+            <span className="plan-badge">Recomendado</span>
+            <h3 className="plan-name">Estudio</h3>
+            <p className="plan-tag">Para estudios con equipos de trabajo de campo y gabinete.</p>
+            <div className="plan-price-block">
+              <span className="plan-price">$35.000</span>
+              <span className="label">/ mes</span>
+            </div>
+            <ul>
+              <li>
+                <span className="tick">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Hasta 6 usuarios con roles diferenciados
+              </li>
+              <li>
+                <span className="tick">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Trámites y clientes ilimitados
+              </li>
+              <li>
+                <span className="tick">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Integración ARBA nativa
+              </li>
+              <li>
+                <span className="tick">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Calendario de visitas semanal y Kanban
+              </li>
+              <li>
+                <span className="tick">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6L9 17l-5-5"/>
+                  </svg>
+                </span>
+                Reportes avanzados de facturación y rendimiento
+              </li>
             </ul>
-            <a href={buildWhatsAppHref(whatsAppPresets.plan('Estudio'))} onClick={guardWhatsAppNavigation} className="block w-full text-center bg-green-600 text-white py-3 rounded-xl font-bold">Elegir Estudio</a>
+            <a
+              href={estudioLink}
+              onClick={guardWhatsAppNavigation}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary plan-cta"
+            >
+              Elegir plan Estudio
+            </a>
           </div>
         </div>
       </div>

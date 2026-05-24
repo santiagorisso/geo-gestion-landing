@@ -75,6 +75,8 @@ export default function AppScreenshotCarousel() {
                 <img 
                   src={slides[index].image} 
                   alt={slides[index].title} 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 pt-24 pb-8 px-8 bg-gradient-to-t from-black/95 via-black/20 to-transparent text-white text-center">

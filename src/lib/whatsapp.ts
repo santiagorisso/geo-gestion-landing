@@ -22,8 +22,9 @@ export function buildWhatsAppHref(prefilledMessage: string): string {
 
 export const whatsAppPresets = {
   demo: `Hola, quiero solicitar una demo gratuita de ${BRAND}.`,
-  plan: (planName: 'Starter' | 'Estudio') =>
-    `Hola, me interesa consultar por el plan ${planName} de ${BRAND}.`,
+  'plan-starter': `Hola, me interesa consultar por el plan Starter de ${BRAND}.`,
+  'plan-estudio': `Hola, me interesa consultar por el plan Estudio de ${BRAND}.`,
+  enterprise: `Hola, mi estudio supera los 6 usuarios. Quiero consultar un plan a medida de ${BRAND}.`,
 } as const;
 
 const RATE_LIMIT_MESSAGE =
