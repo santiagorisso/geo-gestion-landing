@@ -18,7 +18,7 @@ export const PricingSection = () => {
             <h3 className="plan-name">Starter</h3>
             <p className="plan-tag">Ideal para agrimensores independientes.</p>
             <div className="plan-price-block">
-              <span className="plan-price">$20.000</span>
+              <span className="plan-price">$60.000</span>
               <span className="label">/ mes</span>
             </div>
             <ul>
@@ -28,7 +28,7 @@ export const PricingSection = () => {
                     <path d="M20 6L9 17l-5-5"/>
                   </svg>
                 </span>
-                Hasta 2 usuarios activos
+                1 usuario activo
               </li>
               <li>
                 <span className="tick">
@@ -47,12 +47,7 @@ export const PricingSection = () => {
                 Integración ARBA nativa
               </li>
               <li>
-                <span className="tick">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 6L9 17l-5-5"/>
-                  </svg>
-                </span>
-                Calendario de visitas semanal
+
               </li>
             </ul>
             <a
@@ -71,7 +66,7 @@ export const PricingSection = () => {
             <h3 className="plan-name">Estudio</h3>
             <p className="plan-tag">Para estudios con equipos de trabajo de campo y gabinete.</p>
             <div className="plan-price-block">
-              <span className="plan-price">$35.000</span>
+              <span className="plan-price">$90.000</span>
               <span className="label">/ mes</span>
             </div>
             <ul>

@@ -111,11 +111,16 @@ button { font: inherit; cursor: pointer; }
   color: var(--accent-ink);
 }
 .brand-mark {
-  width: 26px; height: 26px;
-  background: var(--accent); border-radius: 7px;
-  display: grid; place-items: center;
-  color: #fff;
-  box-shadow: inset 0 -2px 0 rgba(0,0,0,.18);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.brand-mark img {
+  display: block;
+  width: auto;
+  height: 26px;
+  object-fit: contain;
 }
 .nav-links { display: none; gap: 28px; }
 .nav-links a { color: var(--fg-2); font-size: 14.5px; }
@@ -228,6 +233,15 @@ button { font: inherit; cursor: pointer; }
   z-index: 2;
 }
 .hero-screenshot img { width: 100%; height: auto; display: block; }
+
+.hero-caption {
+  font-size: clamp(17px, 1.6vw, 20px);
+  color: var(--fg-2);
+  line-height: 1.55;
+  max-width: 60ch;
+  margin: 32px auto 0;
+  text-align: center;
+}
 
 /* ===== Trust strip ===== */
 .trust {

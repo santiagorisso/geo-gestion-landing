@@ -1,3 +1,4 @@
+import BrandMark from './BrandMark';
 import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from '../lib/whatsapp';
 
 export default function Footer() {
@@ -11,14 +12,12 @@ export default function Footer() {
         <div>
           <a href="#" className="brand" style={{ marginBottom: "12px" }} aria-label="Geo-Gestión, inicio">
             <span className="brand-mark" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 20l6-12 4 8 3-5 5 9"/>
-              </svg>
+              <BrandMark />
             </span>
             Geo-Gestión
           </a>
           <p style={{ margin: 0, fontSize: "13.5px", maxWidth: "28ch", lineHeight: 1.5, color: "var(--muted)" }}>
-            El gestor de trabajos diseñado para agrimensores y gestores en Buenos Aires.
+            El gestor de trabajos diseñado para agrimensores.
           </p>
         </div>
         <div>
@@ -54,13 +53,13 @@ export default function Footer() {
               </a>
             </li>
             <li><a href="mailto:soportegeogestion@gmail.com">Envianos un email</a></li>
-            <li><span style={{ display: "inline-block", paddingTop: "4px" }}>Mar del Plata, Argentina</span></li>
+            {/* <li><span style={{ display: "inline-block", paddingTop: "4px" }}>Mar del Plata, Argentina</span></li> */}
           </ul>
         </div>
       </div>
       <div className="wrap foot-base">
         <span>© <span id="year">{currentYear}</span> Geo-Gestión. Todos los derechos reservados.</span>
-        <span>Hecho para agrimensores con criterio.</span>
+        <span>Hecho para agrimensores.</span>
       </div>
     </footer>
   );

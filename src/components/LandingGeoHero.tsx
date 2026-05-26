@@ -64,6 +64,9 @@ export default function LandingGeoHero() {
               fetchPriority="high"
             />
           </figure>
+          <p className="hero-caption reveal" style={{ animationDelay: '0.2s' }}>
+            Basta de la fricción entre cliente y estudio por mensajes consultando el estado del trámite. Con un código único que le brindás al cliente, ¡él mismo puede corroborar cómo viene su trámite!
+          </p>
         </div>
       </section>
 

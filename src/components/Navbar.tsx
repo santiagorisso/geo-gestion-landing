@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import BrandMark from './BrandMark';
 import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from '../lib/whatsapp';
 
 export default function Navbar() {
@@ -45,7 +46,7 @@ export default function Navbar() {
         <div className="wrap nav-inner">
           <a href="#" className="brand" aria-label="Geo-Gestión, inicio">
             <span className="brand-mark" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l6-12 4 8 3-5 5 9"/></svg>
+              <BrandMark />
             </span>
             Geo-Gestión
           </a>
