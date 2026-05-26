@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import LandingGeoHero from './components/LandingGeoHero';
 import TramitesSection from './components/TramitesSection';
@@ -44,6 +45,7 @@ function App() {
         <ContactSection />
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 }
