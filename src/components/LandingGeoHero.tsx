@@ -1,4 +1,4 @@
-import buscadorImg from '../assets/buscador.png';
+import buscadorImg from '../assets/buscador_publico.png';
 import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from '../lib/whatsapp';
 
 export default function LandingGeoHero() {

@@ -1,8 +1,8 @@
 import dashboardImg from '../assets/dashboard.png';
 import trabajosImg from '../assets/trabajos.png';
 import clientesImg from '../assets/clientes.png';
-import reportesClientesImg from '../assets/reportes - clientes.png';
-import reporteFactImg from '../assets/reporte-fact.png';
+import reportesClientesImg from '../assets/reportes_clientes.png';
+import reporteFactImg from '../assets/reportes.png';
 import calendarioImg from '../assets/calendario.png';
 
 const Tick = () => (

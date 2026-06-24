@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import dashboardImg from '../assets/dashboard.png';
-import buscadorImg from '../assets/buscador.png';
+import buscadorImg from '../assets/buscador_publico.png';
 import trabajosImg from '../assets/trabajos.png';
 import clientesImg from '../assets/clientes.png';
 import calendarioImg from '../assets/calendario.png';
-import reportesClientesImg from '../assets/reportes - clientes.png';
-import reportesFactImg from '../assets/reporte-fact.png';
+import reportesClientesImg from '../assets/reportes_clientes.png';
+import reportesFactImg from '../assets/reportes.png';
 
 const slides = [
   {
