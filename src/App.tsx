@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import LandingGeoHero from './components/LandingGeoHero';
 import TramitesSection from './components/TramitesSection';
+import DemoSection from './components/DemoSection';
 import PillarsSection from './components/PillarsSection';
 import FeaturesSection from './components/FeaturesSection';
 import { PricingSection } from './components/PricingSection';
@@ -38,6 +39,7 @@ function App() {
       <main>
         <LandingGeoHero />
         <TramitesSection />
+        <DemoSection />
         <PillarsSection />
         <FeaturesSection />
         <PricingSection />
