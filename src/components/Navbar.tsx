@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import BrandMark from './BrandMark';
-import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from '../lib/whatsapp';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,8 +37,6 @@ export default function Navbar() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isMenuOpen]);
 
-  const whatsappLink = buildWhatsAppHref(whatsAppPresets.demo);
-
   return (
     <>
       <header className={`nav ${isScrolled ? 'scrolled' : ''}`} id="nav">
@@ -56,16 +53,6 @@ export default function Navbar() {
             <a href="#planes">Planes</a>
             <a href="#faq">FAQ</a>
           </nav>
-          <a
-            href={whatsappLink}
-            className="btn btn-primary btn-sm nav-cta"
-            onClick={guardWhatsAppNavigation}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Pedi la demo
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
           <button
             className="nav-burger"
             aria-label="Abrir menú"
@@ -87,18 +74,6 @@ export default function Navbar() {
         <a href="#funcionalidades" onClick={() => toggleMenu(false)}>Funcionalidades</a>
         <a href="#planes" onClick={() => toggleMenu(false)}>Planes</a>
         <a href="#faq" onClick={() => toggleMenu(false)}>FAQ</a>
-        <a
-          href={whatsappLink}
-          onClick={(e) => {
-            toggleMenu(false);
-            guardWhatsAppNavigation(e);
-          }}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ marginTop: '20px', color: 'var(--accent)' }}
-        >
-          Pedi la demo →
-        </a>
       </div>
     </>
   );

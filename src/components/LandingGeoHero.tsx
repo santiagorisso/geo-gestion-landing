@@ -1,9 +1,6 @@
 import buscadorImg from '../assets/buscador_publico.png';
-import { buildWhatsAppHref, guardWhatsAppNavigation, whatsAppPresets } from '../lib/whatsapp';
 
 export default function LandingGeoHero() {
-  const whatsappLink = buildWhatsAppHref(whatsAppPresets.demo);
-
   return (
     <>
       {/* ============== HERO ============== */}
@@ -19,17 +16,7 @@ export default function LandingGeoHero() {
             estados del trámite claros y reportes que tu estudio ya entiende.
           </p>
           <div className="hero-actions">
-            <a
-              href={whatsappLink}
-              className="btn btn-primary"
-              onClick={guardWhatsAppNavigation}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Pedi la demo
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#planes" className="btn btn-ghost">Ver planes</a>
+            <a href="#planes" className="btn btn-primary">Ver planes</a>
           </div>
 
           {/* <dl className="hero-meta">
